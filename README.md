@@ -7,8 +7,7 @@ Alkamli & Alshamlan, 2025 (Diagnostics)
 
 ## 📌 Overview
 
-This repository contains the implementation of the **Nuclear Reaction Optimization (NRO)** algorithm applied to **gene selection for microarray cancer datasets**.  
-NRO is a physics-inspired metaheuristic that simulates **nuclear fission** and **nuclear fusion** processes to explore and refine feature subsets.
+This repository contains the implementation of the **Nuclear Reaction Optimization (NRO)** algorithm applied to **gene selection for microarray cancer datasets**. NRO is a physics-inspired metaheuristic that simulates **nuclear fission** and **nuclear fusion** processes to explore and refine feature subsets.
 
 This code reproduces the optimization pipeline described in the published work and can be applied to any high-dimensional biological dataset.
 
