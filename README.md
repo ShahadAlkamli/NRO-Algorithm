@@ -2,7 +2,6 @@
 ### Official Implementation of the Algorithm Used in the Published Study  
 **“Evaluating the Nuclear Reaction Optimization (NRO) Algorithm for Gene Selection in Cancer Classification.”**  
 Alkamli & Alshamlan, 2025 (Diagnostics)  
-:contentReference[oaicite:0]{index=0}
 
 ---
 
