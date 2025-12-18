@@ -87,22 +87,6 @@ The script will:
 - Perform optimization  
 - Display accuracy and selected gene indices  
 
-
----
-
-## 📦 Datasets
-
-Place all `.arff` datasets inside the `Datasets/` directory.  
-The following datasets are supported:
-
-- Colon  
-- Leukemia 1  
-- Leukemia 2  
-- Lung  
-- Lymphoma  
-- SRBCT  
-
-
 ---
 
 ## 📝 Citation
