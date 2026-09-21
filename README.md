@@ -9,7 +9,7 @@ Alkamli & Alshamlan, 2025
 
 ## 📌 Overview
 
-This repository presents the methodology and datasets of the **Nuclear Reaction Optimization (NRO)** algorithm applied to **gene selection for microarray cancer datasets**. NRO is a physics-inspired metaheuristic that simulates **nuclear fission** and **nuclear fusion** processes to explore and refine gene subsets.
+This repository presents the methodology, datasets, and results of the **Nuclear Reaction Optimization (NRO)** algorithm applied to **gene selection for microarray cancer datasets**. NRO is a physics-inspired metaheuristic that simulates **nuclear fission** and **nuclear fusion** processes to explore and refine gene subsets.
 
 This study was the first to evaluate NRO as a standalone gene selection method on microarray data, without prior dimensionality reduction. It forms the foundation of the subsequent hybrid methods:
 
@@ -99,6 +99,23 @@ NRO is evaluated on six well-known microarray datasets:
 | Lung       | 2       | 96      | 7129  |
 | Lymphoma   | 3       | 62      | 4026  |
 | SRBCT      | 4       | 83      | 2308  |
+
+---
+
+## 📈 Published Results (Diagnostics 2025)
+
+Best classification accuracy achieved by NRO across 30 runs:
+
+| Dataset    | SVM        | k-NN       |
+|------------|------------|------------|
+| Colon      | 82.16%     | 76.11%     |
+| Leukemia 1 | 95.53%     | 78.84%     |
+| Leukemia 2 | 92.47%     | 79.22%     |
+| Lung       | 95.36%     | **97.78%** |
+| Lymphoma   | 98.81%     | **99.28%** |
+| SRBCT      | **99.26%** | 80.54%     |
+
+SVM outperformed k-NN on most datasets. As a standalone method without prior dimensionality reduction, NRO selected relatively large gene subsets, which motivated the hybrid F-NRO and GNR methods that followed.
 
 ---
 
