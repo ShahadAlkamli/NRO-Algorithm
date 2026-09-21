@@ -1,30 +1,46 @@
-# Nuclear Reaction Optimization (NRO) for Gene Selection  
-### Official Implementation of the Algorithm Used in the Published Study  
-**“Evaluating the Nuclear Reaction Optimization (NRO) Algorithm for Gene Selection in Cancer Classification.”**  
-Alkamli & Alshamlan, 2025 (Diagnostics)  
+# Nuclear Reaction Optimization (NRO) for Gene Selection
+
+### Official Repository of the Method Published in *Diagnostics (2025)*
+
+**"Evaluating the Nuclear Reaction Optimization (NRO) Algorithm for Gene Selection in Cancer Classification"**
+Alkamli & Alshamlan, 2025
 
 ---
 
 ## 📌 Overview
 
-This repository contains the implementation of the **Nuclear Reaction Optimization (NRO)** algorithm applied to **gene selection for microarray cancer datasets**. NRO is a physics-inspired metaheuristic that simulates **nuclear fission** and **nuclear fusion** processes to explore and refine feature subsets.
+This repository presents the methodology and datasets of the **Nuclear Reaction Optimization (NRO)** algorithm applied to **gene selection for microarray cancer datasets**. NRO is a physics-inspired metaheuristic that simulates **nuclear fission** and **nuclear fusion** processes to explore and refine gene subsets.
 
-This code reproduces the optimization pipeline described in the published work and can be applied to any high-dimensional biological dataset.
+This study was the first to evaluate NRO as a standalone gene selection method on microarray data, without prior dimensionality reduction. It forms the foundation of the subsequent hybrid methods:
+
+- **F-NRO** — F-score filtering combined with NRO (*Current Issues in Molecular Biology*, 2025)
+- **GNR** — Genetic-embedded NRO with F-score filtering (*International Journal of Molecular Sciences*, 2025)
+
+---
+
+## 🔒 Code Availability
+
+The implementation of the NRO algorithm is available upon request for academic and research purposes.
+
+To request access, please contact: shahad.s.alkamli@gmail.com
 
 ---
 
 ## 📁 Repository Structure
 
 ```
-├── Datasets/
-│   ├── Colon.arff
-│   ├── Leukemia1.arff
-│   ├── Leukemia2.arff
-│   ├── Lung.arff
-│   ├── Lymphoma.arff
-│   └── SRBCT.arff
+NRO/
 │
-├── NRO.py              # Full implementation of NRO algorithm
+├── NRO.py               # Code availability notice
+│
+├── Datasets/
+│     ├── Colon.arff
+│     ├── Leukemia1.arff
+│     ├── Leukemia2.arff
+│     ├── Lung.arff
+│     ├── Lymphoma.arff
+│     └── SRBCT.arff
+│
 └── README.md
 ```
 
@@ -33,73 +49,71 @@ This code reproduces the optimization pipeline described in the published work a
 ## 🔬 Methodology
 
 ### **1. Preprocessing**
-- Load `.arff` microarray datasets  
-- Handle missing values (mean imputation)  
-- Normalize features using Z-score  
-- Encode class labels numerically  
+
+- Load `.arff` microarray datasets
+- Handle missing values using mean imputation (Lymphoma dataset contains 4.91% missing values)
+- Normalize features using Z-score
+- Encode class labels numerically
 
 ### **2. Optimization Using NRO**
 
-The algorithm includes:
+The algorithm alternates between two phases:
 
-#### **Nuclear Fission**
-- Diversification phase  
-- Gaussian perturbation  
-- Mutation of solution components  
-- Progressive reduction of step size  
+#### 🔹 Nuclear Fission (Exploration)
 
-#### **Nuclear Fusion**
-- Intensification phase  
-- Solution ionization  
-- Fusion between candidate solutions  
-- Lévy flight mechanism to escape local minima  
+- Gaussian perturbation around candidate solutions
+- Mutation factors for subaltern and essential fission products
+- Step sizes that decrease progressively across generations
+
+#### 🔹 Nuclear Fusion (Exploitation)
+
+- Ionization based on differences between candidate solutions
+- Fusion of promising solutions
+- Lévy flight to escape local optima when solutions become too similar
 
 ### **3. Evaluation**
-Each candidate feature subset is evaluated with:
 
-- **Support Vector Machine (SVM)**  
-- **k-Nearest Neighbors (k-NN)**  
-- **Leave-One-Out Cross Validation (LOOCV)**  
+Each candidate gene subset is evaluated with:
 
-The fitness function balances:
+- **Support Vector Machine (SVM)** with a linear kernel
+- **k-Nearest Neighbors (k-NN)** with k = 5
+- **Leave-One-Out Cross-Validation (LOOCV)**
 
-- Classification accuracy  
-- Number of selected genes  
+The fitness function balances classification accuracy against the number of selected genes.
+
+### **4. Repetition**
+
+All experiments repeat **30 runs per dataset and classifier** for statistical reliability.
 
 ---
 
-## ▶️ How to Run
+## 📊 Datasets
 
-### Install dependencies
-```bash
-pip install numpy pandas scipy scikit-learn
-```
+NRO is evaluated on six well-known microarray datasets:
 
-### Run the NRO algorithm
-```bash
-python NRO.py
-```
-
-The script will:
-
-- Load datasets  
-- Perform optimization  
-- Display accuracy and selected gene indices  
+| Dataset    | Classes | Samples | Genes |
+|------------|---------|---------|-------|
+| Colon      | 2       | 62      | 2000  |
+| Leukemia 1 | 2       | 72      | 7129  |
+| Leukemia 2 | 3       | 72      | 7129  |
+| Lung       | 2       | 96      | 7129  |
+| Lymphoma   | 3       | 62      | 4026  |
+| SRBCT      | 4       | 83      | 2308  |
 
 ---
 
 ## 📝 Citation
 
-If you use this code, please cite:
+If you use this work, please cite:
 
 ```
-Alkamli, S.; Alshamlan, H. Evaluating the Nuclear Reaction
-Optimization (NRO) Algorithm for Gene Selection in Cancer
-Classification. Diagnostics, 2025.
+Alkamli, S.; Alshamlan, H. Evaluating the Nuclear Reaction Optimization (NRO)
+Algorithm for Gene Selection in Cancer Classification.
+Diagnostics, 2025, 15(7), 927.
 ```
 
 ---
 
-## 📄 License
-This code is provided for **research and academic use**.
+## 📜 License
 
+This repository is provided for **academic and research purposes only**.
