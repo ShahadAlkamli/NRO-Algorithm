@@ -3,7 +3,7 @@
 ### Official Repository of the Method Published in *Diagnostics (2025)*
 
 **"Evaluating the Nuclear Reaction Optimization (NRO) Algorithm for Gene Selection in Cancer Classification"**
-Alkamli & Alshamlan, 2025
+Alkamli & Alshamlan, 2025 
 
 ---
 
